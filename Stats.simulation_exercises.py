@@ -32,3 +32,27 @@ prob_2_DS
 poptarts= np.random.normal(3, 1.5, (1000, 5))
 probability_friday = (poptarts.sum(1)<=16).mean()
 probability_friday
+
+# 5 Compare Heights
+
+#Men have an average height of 178 cm and standard deviation of 8cm.
+#Women have a mean of 170, sd = 6cm.
+#If a man and woman are chosen at random, P(woman taller than man)?
+height_men= np.random.normal(178, 8, 10000)
+height_woman= np.random.normal(170, 6, 10000)
+
+prob_men_taller= (height_men > height_woman).mean()
+
+prob_woman_taller
+
+#When installing anaconda on a student's computer, there's a 1 in 250 chance that the download is corrupted and the installation fails. What are the odds that after having 50 students download anaconda, no one has an installation issue? 100 students?
+corrupt= (1/250)
+
+prob_50=(np.random.random((1000000,50)) > corrupt).prod(1).mean()
+prob_50
+
+prob_100= (np.random.random((10000,100))>corrupt).prod(1).mean()
+prob_100
+
+prob_150= 1-(np.random.random((10000,150))>corrupt).prod(1).mean()
+prob_450= (np.random.random((10000,450))>corrupt).prod(1).mean()
