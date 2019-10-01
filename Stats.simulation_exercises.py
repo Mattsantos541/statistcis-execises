@@ -9,3 +9,15 @@ dice_equal= count(rolls1 = rolls2)
 
 ##If you flip 8 coins, what is the probability of getting exactly 3 heads? What is the probability of getting 
 #more than 3 heads?
+import random
+def coin_trial():
+    heads = 0
+    for i in range(100):
+        if random.random() <= 0.5:
+            heads +=1
+            return heads
+def simulate(n):
+    trials = []
+    for i in range(n):
+        trials.append(coin_trial())
+        return(sum(trials)/n)
