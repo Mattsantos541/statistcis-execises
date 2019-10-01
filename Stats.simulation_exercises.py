@@ -56,3 +56,11 @@ prob_100
 
 prob_150= 1-(np.random.random((10000,150))>corrupt).prod(1).mean()
 prob_450= (np.random.random((10000,450))>corrupt).prod(1).mean()
+
+
+#There's a 70% chance on any given day that there will be at least one food truck at Travis Park. However, 
+#you haven't seen a food truck there in 3 days.How unlikely is this?
+truck= (.7)
+seeing_truck= (np.random.random((1000000,3)) > .7).prod(1).mean()
+#How likely is it that a food truck will show up sometime this week?
+truckanyday=1-(np.random.random((1000000,7)) > .7).prod(1).mean()
