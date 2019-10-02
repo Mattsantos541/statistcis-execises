@@ -22,3 +22,9 @@ clicks.pmf(97)
 hw= stats.binom(100, .01)
 
 hw.sf(.6)
+
+
+#Suppose that there's a 3% chance that any one student cleans the break area when they visit it, and, on any given day, about 90% of the 3 active cohorts of 22 students visit the break area. How likely is it that the break area gets cleaned up each day? How likely is it that it goes two days without getting cleaned up? All week?
+
+students= stats.binom(60, .03)
+students.cdf(2)
