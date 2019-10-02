@@ -64,3 +64,9 @@ truck= (.7)
 seeing_truck= (np.random.random((1000000,3)) > .7).prod(1).mean()
 #How likely is it that a food truck will show up sometime this week?
 truckanyday=1-(np.random.random((1000000,7)) > .7).prod(1).mean()
+
+#If 23 people are in the same room, what are the odds that two of them share a birthday? What if it's 20 people? 40?
+bday_23 = np.random.randint(0,365,(1000000,23))
+bday_23
+np.random.choice(range(365), 23)
+  
