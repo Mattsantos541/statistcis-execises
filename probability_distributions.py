@@ -4,9 +4,21 @@ import scipy
 from scipy import stats
 from scipy import uniform
 
+#A bank found that the average number of cars waiting during the noon hour at a drive-up window follows a Poisson distribution with a mean of 2 cars. Make a chart of this distribution and answer these questions concerning the probability of cars waiting at the drive-up window.
+
+waiting= stats.poisson(2)
+#What is the probability that no cars drive up in the noon hour?
+waiting.cdf(0)
+
+#What is the probability that 3 or more cars come through the drive through?
+waiting.sf(3)
+#How likely is it that the drive through gets at least 1 car?
+waiting.cdf(1)
+
 #Grades of State University graduates are normally distributed with a mean of 3.0 and a standard deviation of .3. 
 #Calculate the following:
 gpa=stats.norm(3, .3)
+gpa.rvs(10000).mean()
 
 #1What grade point average is required to be in the top 5% of the graduating class?
 gpa.isf(.05)
