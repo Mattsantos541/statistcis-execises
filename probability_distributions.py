@@ -19,9 +19,11 @@ waiting.cdf(1)
 #Calculate the following:
 gpa=stats.norm(3, .3)
 gpa.rvs(10000).mean()
+#What grade point average is required to be in the top 5% of the graduating class?
+gpa.sf(.95)
 
-#1What grade point average is required to be in the top 5% of the graduating class?
-gpa.isf(.05)
+#What GPA constitutes the bottom 15% of the class?
+gpa.ppf(.15)
 
 #A marketing website has an average click-through rate of 2%. One day they observe 4326 visitors and 97 
 #click-throughs. How likely is it that this many people or more click through?
@@ -54,3 +56,12 @@ people_in_line.cdf(lunch_hour)
 #What percent of employees earn more than 95,000?
 #What percent of employees earn between 65,000 and 80,000?
 #What do the top 5% of employees make?
+
+salaries = pd.read_sql(query,url)
+mean = salaries['salary'].mean()
+std = salaries['salary'].std
+salary_dist = stats.norm(mean,std)
+p_under_60k = salary_dist.cdf(60_000)
+p_over_95k = salary_dist.sf(95_000)
+p_between_65k_and_80k = salary_dist.cdf(80_000) - salary_dist.cdf(65_000)
+top_5_percent = salary_dist.isf(.05)
