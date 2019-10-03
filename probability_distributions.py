@@ -27,4 +27,18 @@ hw.sf(.6)
 #Suppose that there's a 3% chance that any one student cleans the break area when they visit it, and, on any given day, about 90% of the 3 active cohorts of 22 students visit the break area. How likely is it that the break area gets cleaned up each day? How likely is it that it goes two days without getting cleaned up? All week?
 
 students= stats.binom(60, .03)
-students.cdf(2)
+students.sf(0)
+students.sf(2)
+students.sf(5)
+
+#You want to get lunch at La Panaderia, but notice that the line is usually very long at lunchtime. After several weeks of careful observation, you notice that the average number of people in line when your lunch break starts is normally distributed with a mean of 15 and standard deviation of 3. If it takes 2 minutes for each person to order, and 10 minutes from ordering to getting your food, what is the likelihood that you have at least 15 minutes left to eat your food before you have to go back to class? Assume you have one hour for lunch, and ignore travel time to and from La Panaderia.
+people_in_line = stats.norm(15, 3)
+lunch_hour= (60-15-10)//2
+people_in_line.cdf(lunch_hour)
+
+#Connect to the employees database and find the average salary of current employees, along with the standard deviation. Model the distribution of employees salaries with a normal distribution and answer the following questions:
+
+#What percent of employees earn less than 60,000?
+#What percent of employees earn more than 95,000?
+#What percent of employees earn between 65,000 and 80,000?
+#What do the top 5% of employees make?
