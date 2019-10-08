@@ -22,7 +22,38 @@ H1: There is an increase in network latency since we swithched
 Type 1: since we switched network latency has increased, but the sample is just high
 Type 2: There is no change in latency since we changed, but the sample just hsow no change
 
-#Use the following contingency table to help answer the question of whether using a macbook and being a codeup 
+
+# Ace Realty wants to determine whether the average time it takes to sell homes is different for its two offices. A sample of 40 sales from office #1 revealed a mean of 90 days and a standard deviation of 15 days. A sample of 50 sales from office #2 revealed a mean of 100 days and a standard deviation of 20 days. Use a .05 level of significance.
+from math import sqrt
+from scipy import stats
+n1 = 40
+n2 = 50
+
+s1 = 15
+s2 = 20
+
+m1 = 90
+m2 = 100
+
+degf = n1 + n2 - 2
+
+s_p = sqrt((((n1-1) * s1**2) + ((n2-1) * s2**2))/(n1+n2-2))
+
+standard_error = se = sqrt(s1**2 / n1 + s2**2/n2)
+t = (m1-m2) /(s_p * sqrt(1/n1+1/n2))
+
+#Correlation Test 
+
+
+#3Use the sleepstudy data. Is there a relationship between days and reaction time?
+ss= data("sleepstudy")
+ss
+plt.scatter(x= ss.Days, y= ss.Reaction)
+r, p = stats.pearsonr(x, y)
+
+#Chi Test 
+
+#1  Use the following contingency table to help answer the question of whether using a macbook and being a codeup 
 #student are independent of each other.
 
 index = ['Use MB', 'No MB']
